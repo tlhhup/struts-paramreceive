@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<!-- 常量 -->
+	<constant name="struts.action.extension" value="do" />
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<constant name="struts.devMode" value="true" />
+	<!-- 设置动态方法调用 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+
+	<package name="mystruts" namespace="/" extends="struts-default">
+	    
+	    <!-- 全局视图：对所有的action都有效 -->
+	    <global-results>
+	        <result name="main">/WEB-INF/manager/main.jsp</result>
+	        <!-- 校验失败之后执行视图名称 -->
+	        <result name="input">/login3.jsp</result>
+	    </global-results>
+	
+	    <action name="LoginAction" class="com.paramreceive.action.LoginAction" method="login">
+	       
+	    </action>
+	    
+	    <action name="UserAction" class="com.paramreceive.action.UserAction" method="login">
+	   
+	    </action>
+	    
+	    <action name="UsersAction" class="com.paramreceive.action.UsersAction" method="login">
+	        <result name="logout">/login3.jsp</result>
+	    </action>
+	    
+	    <!-- 通配符 * -->
+	    <action name="UserActionWildcard_*" class="com.paramreceive.action.UserActionWildcard" method="{1}">
+	        <result name="logout">/login4.jsp</result>
+	    </action>
+	    
+	</package>
+</struts>
